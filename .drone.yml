@@ -1,0 +1,10 @@
+kind: pipeline
+name: default
+
+steps:
+- name: elastic_sh
+  image: rust:1.42.0
+  commands:
+  - rustup component add clippy
+  - cargo clippy --workspace
+  - cargo test --workspace
