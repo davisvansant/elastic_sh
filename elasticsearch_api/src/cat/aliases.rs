@@ -18,11 +18,11 @@ mod tests {
 
     #[test]
     fn get_aliases() {
-        let base = Url::parse("http://localhost:9200").unwrap();
+        let base = Url::parse("http://elasticsearch:9200").unwrap();
         let request = get(base);
         let request_url = request.url();
 
-        assert_eq!(request_url.as_str(), "http://localhost:9200/_cat/aliases");
+        assert_eq!(request_url.as_str(), "http://elasticsearch:9200/_cat/aliases");
         assert_eq!(request_url.path(), "/_cat/aliases");
     }
 }
