@@ -8,3 +8,10 @@ steps:
   - rustup component add clippy
   - cargo clippy --workspace
   - cargo test --workspace
+
+services:
+  - name: elasticsearch
+    image: elasticsearch:7.6.2
+    port: 9200
+    environment:
+      discovery.type: single-node
