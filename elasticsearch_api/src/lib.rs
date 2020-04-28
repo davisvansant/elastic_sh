@@ -1,5 +1,6 @@
 mod cat;
 mod cluster;
+mod nodes;
 
 #[cfg(test)]
 mod tests {
