@@ -36,6 +36,14 @@ fn head(base_url: Url) -> Request {
     reqwest::Request::new(method, url)
 }
 
+#[allow(dead_code)]
+fn delete(base_url: Url) -> Request {
+    let method = Method::DELETE;
+    let url = base_url.join("/index/_create").unwrap();
+
+    reqwest::Request::new(method, url)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -87,6 +95,16 @@ mod tests {
         let base = Url::parse("http://elasticsearch:9200").unwrap();
         let client = Client::new();
         let request = head(base);
+        let response = client.execute(request).await.unwrap();
+
+        assert_eq!(response.status(), StatusCode::METHOD_NOT_ALLOWED);
+    }
+
+    #[tokio::test]
+    async fn index_delete_response() {
+        let base = Url::parse("http://elasticsearch:9200").unwrap();
+        let client = Client::new();
+        let request = delete(base);
         let response = client.execute(request).await.unwrap();
 
         assert_eq!(response.status(), StatusCode::METHOD_NOT_ALLOWED);
