@@ -1,5 +1,6 @@
 mod cat;
 mod cluster;
+mod index;
 mod multi_document;
 mod nodes;
 mod single_document;
