@@ -5,6 +5,7 @@ pub mod close;
 pub mod flush;
 pub mod force_merge;
 pub mod management;
+pub mod mapping;
 pub mod open;
 pub mod recovery;
 pub mod refresh;
