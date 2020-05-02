@@ -1,4 +1,5 @@
 pub mod alias;
+pub mod aliases;
 pub mod clear_cache;
 pub mod clone;
 pub mod field_mapping;
