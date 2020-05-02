@@ -2,6 +2,7 @@ use url::Url;
 use reqwest::{Request, Method};
 
 // https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-add-alias.html
+// https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-delete-alias.html
 
 #[allow(dead_code)]
 fn put(base_url: Url) -> Request {
@@ -13,7 +14,15 @@ fn put(base_url: Url) -> Request {
 
 #[allow(dead_code)]
 fn post(base_url: Url) -> Request {
-    let method = Method::PUT;
+    let method = Method::POST;
+    let url = base_url.join("/index/_alias/alias").unwrap();
+
+    reqwest::Request::new(method, url)
+}
+
+#[allow(dead_code)]
+fn delete(base_url: Url) -> Request {
+    let method = Method::DELETE;
     let url = base_url.join("/index/_alias/alias").unwrap();
 
     reqwest::Request::new(method, url)
@@ -55,5 +64,13 @@ mod tests {
         assert_eq!(response.status(), StatusCode::NOT_FOUND);
     }
 
+    #[tokio::test]
+    async fn index_alias_delete() {
+        let base = Url::parse("http://elasticsearch:9200").unwrap();
+        let client = Client::new();
+        let request = delete(base);
+        let response = client.execute(request).await.unwrap();
 
+        assert_eq!(response.status(), StatusCode::NOT_FOUND);
+    }
 }
