@@ -1,6 +1,7 @@
 pub mod alias;
 pub mod clear_cache;
 pub mod clone;
+pub mod field_mapping;
 pub mod close;
 pub mod flush;
 pub mod force_merge;
