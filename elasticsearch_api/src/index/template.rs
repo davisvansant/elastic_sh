@@ -4,6 +4,7 @@ use reqwest::{Request, Method};
 // https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-templates.html
 // https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-delete-template.html
 // https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-template.html
+// https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-template-exists.html
 
 #[allow(dead_code)]
 fn put(base_url: Url) -> Request {
@@ -25,6 +26,14 @@ fn delete(base_url: Url) -> Request {
 fn get(base_url: Url) -> Request {
     let method = Method::GET;
     let url = base_url.join("/_template").unwrap();
+
+    reqwest::Request::new(method, url)
+}
+
+#[allow(dead_code)]
+fn head(base_url: Url) -> Request {
+    let method = Method::HEAD;
+    let url = base_url.join("/_template/*").unwrap();
 
     reqwest::Request::new(method, url)
 }
@@ -70,6 +79,16 @@ mod tests {
         let base = Url::parse("http://elasticsearch:9200").unwrap();
         let client = Client::new();
         let request = get(base);
+        let response = client.execute(request).await.unwrap();
+
+        assert_eq!(response.status(), StatusCode::OK);
+    }
+
+    #[tokio::test]
+    async fn index_template_head() {
+        let base = Url::parse("http://elasticsearch:9200").unwrap();
+        let client = Client::new();
+        let request = head(base);
         let response = client.execute(request).await.unwrap();
 
         assert_eq!(response.status(), StatusCode::OK);
