@@ -2,10 +2,19 @@ use url::Url;
 use reqwest::{Request, Method};
 
 // https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-templates.html
+// https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-delete-template.html
 
 #[allow(dead_code)]
 fn put(base_url: Url) -> Request {
     let method = Method::PUT;
+    let url = base_url.join("/_template/index_template").unwrap();
+
+    reqwest::Request::new(method, url)
+}
+
+#[allow(dead_code)]
+fn delete(base_url: Url) -> Request {
+    let method = Method::DELETE;
     let url = base_url.join("/_template/index_template").unwrap();
 
     reqwest::Request::new(method, url)
@@ -35,5 +44,15 @@ mod tests {
         let response = client.execute(request).await.unwrap();
 
         assert_eq!(response.status(), StatusCode::BAD_REQUEST);
+    }
+
+    #[tokio::test]
+    async fn index_template_delete() {
+        let base = Url::parse("http://elasticsearch:9200").unwrap();
+        let client = Client::new();
+        let request = delete(base);
+        let response = client.execute(request).await.unwrap();
+
+        assert_eq!(response.status(), StatusCode::NOT_FOUND);
     }
 }
