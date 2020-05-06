@@ -3,6 +3,7 @@ pub mod count;
 pub mod explain;
 pub mod field_caps;
 pub mod msearch_template;
+pub mod msearch;
 pub mod rank_eval;
 pub mod request_body;
 pub mod search_shards;
