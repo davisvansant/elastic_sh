@@ -1,3 +1,4 @@
+pub mod api;
 pub mod count;
 pub mod explain;
 pub mod field_caps;
