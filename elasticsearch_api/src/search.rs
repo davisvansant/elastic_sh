@@ -1,0 +1,10 @@
+pub mod count;
+pub mod explain;
+pub mod field_caps;
+pub mod msearch;
+pub mod rank_eval;
+pub mod request_body;
+pub mod search_shards;
+pub mod template;
+pub mod uri;
+pub mod validate;
