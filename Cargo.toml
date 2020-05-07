@@ -1,4 +1,5 @@
 [workspace]
 members = [
-  "elasticsearch_api"
+  "elasticsearch_api",
+  "elastic"
 ]
