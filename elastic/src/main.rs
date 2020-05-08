@@ -67,7 +67,23 @@ fn main() {
                                 .about("Adds or removes master-eligible nodes from the voting configuration exclusion list"),
                         ]),
                 SubCommand::with_name("index").about("Elasticsearch index api")
-                    .display_order(3),
+                    .display_order(3)
+                    .subcommands( vec![
+                            SubCommand::with_name("alias")
+                                .about("An index alias is a logical name used to reference one or more indices")
+                                .subcommands( vec![
+                                        SubCommand::with_name("get")
+                                            .about("Returns information about one or more index aliases"),
+                                        SubCommand::with_name("delete")
+                                            .about("Deletes an existing index alias"),
+                                        SubCommand::with_name("add")
+                                            .about("Creates or updates an index alias"),
+                                        SubCommand::with_name("exists")
+                                            .about("Checks if an index alias exists"),
+                                        SubCommand::with_name("update")
+                                            .about("Adds or removes index aliases")
+                                    ])
+                        ]),
                 SubCommand::with_name("ingest").about("Elasticsearch ingest api")
                     .display_order(4),
                 SubCommand::with_name("multi-document").about("Elasticsearch multi document api")
