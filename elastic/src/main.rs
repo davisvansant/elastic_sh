@@ -49,7 +49,23 @@ fn main() {
                                 .about("Returns thread pool statistics for each node in a cluster")
                         ]),
                 SubCommand::with_name("cluster").about("Elasticsearch cluster api")
-                    .display_order(2),
+                    .display_order(2)
+                    .subcommands( vec![
+                            SubCommand::with_name("allocation-explain")
+                                .about("Provides explanations for shard allocations in the cluster"),
+                            SubCommand::with_name("health")
+                                .about("Returns the health status of a cluster"),
+                            SubCommand::with_name("pending-tasks")
+                                .about("Returns cluster-level changes that have not yet been executed"),
+                            SubCommand::with_name("settings")
+                                .about("Returns cluster-wide settings"),
+                            SubCommand::with_name("state")
+                                .about("Returns metadata about the state of the cluster"),
+                            SubCommand::with_name("stats")
+                                .about("Returns cluster statistics"),
+                            SubCommand::with_name("voting-configuration-exclusions")
+                                .about("Adds or removes master-eligible nodes from the voting configuration exclusion list"),
+                        ]),
                 SubCommand::with_name("index").about("Elasticsearch index api")
                     .display_order(3),
                 SubCommand::with_name("ingest").about("Elasticsearch ingest api")
