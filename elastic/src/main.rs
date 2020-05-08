@@ -82,6 +82,30 @@ fn main() {
                                             .about("Checks if an index alias exists"),
                                         SubCommand::with_name("update")
                                             .about("Adds or removes index aliases")
+                                    ]),
+                            SubCommand::with_name("management")
+                                .about("Index Management")
+                                .subcommands( vec![
+                                        SubCommand::with_name("create")
+                                            .about("Creates a new index"),
+                                        SubCommand::with_name("delete")
+                                            .about("Deletes an existing index"),
+                                        SubCommand::with_name("get")
+                                            .about("Returns information about one or more indexes"),
+                                        SubCommand::with_name("exists")
+                                            .about("Checks if an index exists"),
+                                        SubCommand::with_name("close")
+                                            .about("Closes an index"),
+                                        SubCommand::with_name("open")
+                                            .about("Opens a closed index"),
+                                        SubCommand::with_name("shrink")
+                                            .about("Shrinks an existing index into a new index with fewer primary shards"),
+                                        SubCommand::with_name("split")
+                                            .about("Splits an existing index into a new index with more primary shards"),
+                                        SubCommand::with_name("clone")
+                                            .about("Clones an existing index"),
+                                        SubCommand::with_name("rollover")
+                                            .about("Assigns an index alias to a new index when the alias’s existing index meets a condition you provide."),
                                     ])
                         ]),
                 SubCommand::with_name("ingest").about("Elasticsearch ingest api")
