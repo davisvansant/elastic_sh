@@ -106,6 +106,17 @@ fn main() {
                                             .about("Clones an existing index"),
                                         SubCommand::with_name("rollover")
                                             .about("Assigns an index alias to a new index when the alias’s existing index meets a condition you provide."),
+                                    ]),
+                            SubCommand::with_name("mapping")
+                                .about("Mapping Management")
+                                .subcommands( vec![
+                                        SubCommand::with_name("get")
+                                            .about("Retrieves mapping definitions for indices in a cluster"),
+                                        SubCommand::with_name("field")
+                                            .about("Retrieves mapping definitions for one or more fields"),
+                                        SubCommand::with_name("put")
+                                            .about("Adds new fields to an existing index or changes the search settings of existing fields"),
+
                                     ])
                         ]),
                 SubCommand::with_name("ingest").about("Elasticsearch ingest api")
