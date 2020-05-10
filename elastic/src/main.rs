@@ -151,6 +151,18 @@ fn main() {
                                             .about("Forces a merge on the shards of one or more indices"),
                                         SubCommand::with_name("refresh")
                                             .about("Refreshes one or more indices")
+                                    ]),
+                            SubCommand::with_name("template")
+                                .about("Index Template")
+                                .subcommands( vec! [
+                                        SubCommand::with_name("get")
+                                            .about("Returns information about one or more index templates"),
+                                        SubCommand::with_name("delete")
+                                            .about("Deletes an existing index"),
+                                        SubCommand::with_name("exists")
+                                            .about("Checks if an index template exists"),
+                                        SubCommand::with_name("put")
+                                            .about("Creates or updates an index template"),
                                     ])
                         ]),
                 SubCommand::with_name("ingest").about("Elasticsearch ingest api")
