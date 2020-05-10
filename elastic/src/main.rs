@@ -129,6 +129,16 @@ fn main() {
                                             .about("Returns information about ongoing and completed shard recoveries"),
                                         SubCommand::with_name("shard-stores")
                                             .about("Returns store information about replica shards in one or more indices")
+                                    ]),
+                            SubCommand::with_name("settings")
+                                .about("Index Settings")
+                                .subcommands( vec! [
+                                        SubCommand::with_name("update")
+                                            .about("Changes an index setting in real time"),
+                                        SubCommand::with_name("get")
+                                            .about("Returns setting information for an index"),
+                                        SubCommand::with_name("analyze")
+                                            .about("Performs analysis on a text string and returns the resulting tokens")
                                     ])
                         ]),
                 SubCommand::with_name("ingest").about("Elasticsearch ingest api")
