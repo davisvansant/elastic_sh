@@ -139,6 +139,18 @@ fn main() {
                                             .about("Returns setting information for an index"),
                                         SubCommand::with_name("analyze")
                                             .about("Performs analysis on a text string and returns the resulting tokens")
+                                    ]),
+                            SubCommand::with_name("status")
+                                .about("Status Management")
+                                .subcommands( vec! [
+                                        SubCommand::with_name("clear-cache")
+                                            .about("Clears caches for one or more indices"),
+                                        SubCommand::with_name("flush")
+                                            .about("Flushes one or more indices"),
+                                        SubCommand::with_name("force-merge")
+                                            .about("Forces a merge on the shards of one or more indices"),
+                                        SubCommand::with_name("refresh")
+                                            .about("Refreshes one or more indices")
                                     ])
                         ]),
                 SubCommand::with_name("ingest").about("Elasticsearch ingest api")
