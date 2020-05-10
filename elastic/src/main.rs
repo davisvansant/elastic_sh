@@ -117,6 +117,18 @@ fn main() {
                                         SubCommand::with_name("put")
                                             .about("Adds new fields to an existing index or changes the search settings of existing fields"),
 
+                                    ]),
+                            SubCommand::with_name("monitoring")
+                                .about("Monitoring")
+                                .subcommands( vec! [
+                                        SubCommand::with_name("stats")
+                                            .about("Returns statistics for an index"),
+                                        SubCommand::with_name("segments")
+                                            .about("Returns low-level information about the Lucene segments in index shards"),
+                                        SubCommand::with_name("recovery")
+                                            .about("Returns information about ongoing and completed shard recoveries"),
+                                        SubCommand::with_name("shard-stores")
+                                            .about("Returns store information about replica shards in one or more indices")
                                     ])
                         ]),
                 SubCommand::with_name("ingest").about("Elasticsearch ingest api")
