@@ -166,7 +166,21 @@ fn main() {
                                     ])
                         ]),
                 SubCommand::with_name("ingest").about("Elasticsearch ingest api")
-                    .display_order(4),
+                    .display_order(4)
+                    .subcommands( vec![
+                            SubCommand::with_name("pipeline")
+                                .about("Ingest APIs for managing pipelines")
+                                .subcommands( vec![
+                                        SubCommand::with_name("get")
+                                            .about("Returns information about one or more ingest pipelines"),
+                                        SubCommand::with_name("delete")
+                                            .about("Deletes one or more existing ingest pipeline"),
+                                        SubCommand::with_name("simulate")
+                                            .about("Executes an ingest pipeline against a set of provided documents"),
+                                        SubCommand::with_name("put")
+                                            .about("Creates or updates an ingest pipeline"),
+                                    ])
+                        ]),
                 SubCommand::with_name("multi-document").about("Elasticsearch multi document api")
                     .display_order(5),
                 SubCommand::with_name("nodes").about("Elasticsearch nodes api")
