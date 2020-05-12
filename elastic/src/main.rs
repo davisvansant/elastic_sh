@@ -196,8 +196,19 @@ fn main() {
                             SubCommand::with_name("delete-by-query")
                                 .about("Deletes documents that match the specified query")
                         ]),
-                SubCommand::with_name("nodes").about("Elasticsearch nodes api")
-                    .display_order(6),
+                SubCommand::with_name("nodes")
+                    .about("Elasticsearch nodes api")
+                    .display_order(6)
+                    .subcommands( vec![
+                            SubCommand::with_name("hot-threads")
+                                .about("Returns the hot threads on each selected node in the cluster"),
+                            SubCommand::with_name("info")
+                                .about("Returns cluster nodes information"),
+                            SubCommand::with_name("stats")
+                                .about("Returns cluster nodes statistics"),
+                            SubCommand::with_name("usage")
+                                .about("Returns information on the usage of features")
+                        ]),
                 SubCommand::with_name("search").about("Elasticsearch search api")
                     .display_order(7),
                 SubCommand::with_name("single-document").about("Elasticsearch single document api")
