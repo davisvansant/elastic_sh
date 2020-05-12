@@ -240,8 +240,19 @@ fn main() {
                             SubCommand::with_name("post")
                                 .about("Returns search hits that match the query defined in the request"),
                         ]),
-                SubCommand::with_name("single-document").about("Elasticsearch single document api")
-                    .display_order(8),
+                SubCommand::with_name("single-document")
+                    .about("Elasticsearch single document api")
+                    .display_order(8)
+                    .subcommands( vec![
+                            SubCommand::with_name("index")
+                                .about("Adds a JSON document to the specified index and makes it searchable"),
+                            SubCommand::with_name("get")
+                                .about("Retrieves the specified JSON document from an index"),
+                            SubCommand::with_name("delete")
+                                .about("Removes a JSON document from the specified index"),
+                            SubCommand::with_name("update")
+                                .about("Updates a document using the specified script")
+                        ]),
             ])
         )
         .get_matches();
