@@ -209,8 +209,37 @@ fn main() {
                             SubCommand::with_name("usage")
                                 .about("Returns information on the usage of features")
                         ]),
-                SubCommand::with_name("search").about("Elasticsearch search api")
-                    .display_order(7),
+                SubCommand::with_name("search")
+                    .about("Elasticsearch search api")
+                    .display_order(7)
+                    .subcommands( vec![
+                            SubCommand::with_name("count")
+                                .about("Gets the number of matches for a search query"),
+                            SubCommand::with_name("explain")
+                                .about("Returns information about why a specific document matches (or doesn’t match) a query"),
+                            SubCommand::with_name("field-caps")
+                                .about("Allows you to retrieve the capabilities of fields among multiple indices"),
+                            SubCommand::with_name("msearch-template")
+                                .about("Allows to execute several search template requests"),
+                            SubCommand::with_name("msearch")
+                                .about("Executes several searches with a single API request"),
+                            SubCommand::with_name("rank-eval")
+                                .about("Allows you to evaluate the quality of ranked search results over a set of typical search queries"),
+                            SubCommand::with_name("request-body")
+                                .about("Specifies search criteria as request body parameters"),
+                            SubCommand::with_name("search-shards")
+                                .about("Returns the indices and shards that a search request would be executed against"),
+                            SubCommand::with_name("template")
+                                .about("Allows you to use the mustache language to pre render search requests"),
+                            SubCommand::with_name("uri")
+                                .about("Specifies search criteria as query parameters in the request URI"),
+                            SubCommand::with_name("validate")
+                                .about("Validates a potentially expensive query without executing it"),
+                            SubCommand::with_name("get")
+                                .about("Returns search hits that match the query defined in the request"),
+                            SubCommand::with_name("post")
+                                .about("Returns search hits that match the query defined in the request"),
+                        ]),
                 SubCommand::with_name("single-document").about("Elasticsearch single document api")
                     .display_order(8),
             ])
