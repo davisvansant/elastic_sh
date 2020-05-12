@@ -181,8 +181,21 @@ fn main() {
                                             .about("Creates or updates an ingest pipeline"),
                                     ])
                         ]),
-                SubCommand::with_name("multi-document").about("Elasticsearch multi document api")
-                    .display_order(5),
+                SubCommand::with_name("multi-document")
+                    .about("Elasticsearch multi document api")
+                    .display_order(5)
+                    .subcommands( vec![
+                            SubCommand::with_name("get")
+                                .about("Retrieves multiple JSON documents by ID"),
+                            SubCommand::with_name("bulk")
+                                .about("Performs multiple indexing or delete operations in a single API call"),
+                            SubCommand::with_name("reindex")
+                                .about("Copies documents from one index to another"),
+                            SubCommand::with_name("update-by-query")
+                                .about("Performs an update on every document in the index without changing the source"),
+                            SubCommand::with_name("delete-by-query")
+                                .about("Deletes documents that match the specified query")
+                        ]),
                 SubCommand::with_name("nodes").about("Elasticsearch nodes api")
                     .display_order(6),
                 SubCommand::with_name("search").about("Elasticsearch search api")
