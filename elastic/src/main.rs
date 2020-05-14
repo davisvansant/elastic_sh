@@ -352,8 +352,25 @@ fn main() {
                     }
                     ("index", Some(index_subcommands)) => {
                         match index_subcommands.subcommand() {
-                            ("alias", Some(_)) => {
-                                println!("hi from es index alias!");
+                            ("alias", Some(alias_subcommands)) => {
+                                match alias_subcommands.subcommand() {
+                                    ("get", Some(_)) => {
+                                        println!("hi from es index alias get!");
+                                    }
+                                    ("delete", Some(_)) => {
+                                        println!("hi from es index alias delete!");
+                                    }
+                                    ("add", Some(_)) => {
+                                        println!("hi from es index alias add!");
+                                    }
+                                    ("exists", Some(_)) => {
+                                        println!("hi from es index alias exists!");
+                                    }
+                                    ("update", Some(_)) => {
+                                        println!("hi from es index alias update!");
+                                    }
+                                    _ => println!("{}", alias_subcommands.usage()),
+                                }
                             }
                             ("management", Some(_)) => {
                                 println!("hi from es index management!");
