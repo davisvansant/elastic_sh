@@ -438,8 +438,19 @@ fn main() {
                                     _ => println!("{}", monitoring_subcommands.usage()),
                                 }
                             }
-                            ("settings", Some(_)) => {
-                                println!("hi from es index settings!");
+                            ("settings", Some(settings_subcommands)) => {
+                                match settings_subcommands.subcommand() {
+                                    ("update", Some(_)) => {
+                                        println!("hi from es index settings update!");
+                                    }
+                                    ("get", Some(_)) => {
+                                        println!("hi from es index settings get!");
+                                    }
+                                    ("analyze", Some(_)) => {
+                                        println!("hi from es index settings analyze!");
+                                    }
+                                    _ => println!("{}", settings_subcommands.usage()),
+                                }
                             }
                             ("status", Some(_)) => {
                                 println!("hi from es index status!");
