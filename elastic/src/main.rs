@@ -489,8 +489,27 @@ fn main() {
                             _ => println!("{}", index_subcommands.usage()),
                         }
                     }
-                    ("ingest", Some(_)) => {
-                        println!("hi from ingest!");
+                    ("ingest", Some(ingest_subcommands)) => {
+                        match ingest_subcommands.subcommand() {
+                            ("pipeline", Some(pipeline_subcommands)) => {
+                                match pipeline_subcommands.subcommand() {
+                                    ("get", Some(_)) => {
+                                        println!("hi from es ingest pipeline get!");
+                                    }
+                                    ("delete", Some(_)) => {
+                                        println!("hi from es ingest pipeline delete!");
+                                    }
+                                    ("simulate", Some(_)) => {
+                                        println!("hi from es ingest pipeline simulate!");
+                                    }
+                                    ("put", Some(_)) => {
+                                        println!("hi from es ingest pipeline put!");
+                                    }
+                                    _ => println!("{}", pipeline_subcommands.usage()),
+                                }
+                            }
+                            _ => println!("{}", ingest_subcommands.usage()),
+                        }
                     }
                     ("multi-document", Some(_)) => {
                         println!("hi from multi-document!");
