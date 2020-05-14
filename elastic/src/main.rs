@@ -350,8 +350,31 @@ fn main() {
                             _ => println!("{}", cluster_subcommands.usage()),
                         }
                     }
-                    ("index", Some(_)) => {
-                        println!("hi from index!");
+                    ("index", Some(index_subcommands)) => {
+                        match index_subcommands.subcommand() {
+                            ("alias", Some(_)) => {
+                                println!("hi from es index alias!");
+                            }
+                            ("management", Some(_)) => {
+                                println!("hi from es index management!");
+                            }
+                            ("mapping", Some(_)) => {
+                                println!("hi from es index mapping!");
+                            }
+                            ("monitoring", Some(_)) => {
+                                println!("hi from es index monitoring!");
+                            }
+                            ("settings", Some(_)) => {
+                                println!("hi from es index settings!");
+                            }
+                            ("status", Some(_)) => {
+                                println!("hi from es index status!");
+                            }
+                            ("template", Some(_)) => {
+                                println!("hi from es index template!");
+                            }
+                            _ => println!("{}", index_subcommands.usage()),
+                        }
                     }
                     ("ingest", Some(_)) => {
                         println!("hi from ingest!");
