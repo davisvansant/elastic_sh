@@ -421,8 +421,22 @@ fn main() {
                                     _ => println!("{}", mapping_subcommands.usage()),
                                 }
                             }
-                            ("monitoring", Some(_)) => {
-                                println!("hi from es index monitoring!");
+                            ("monitoring", Some(monitoring_subcommands)) => {
+                                match monitoring_subcommands.subcommand() {
+                                    ("stats", Some(_)) => {
+                                        println!("hi from index monitoring stats!");
+                                    }
+                                    ("segments", Some(_)) => {
+                                        println!("hi from index monitoring segments!");
+                                    }
+                                    ("recovery", Some(_)) => {
+                                        println!("hi from index monitoring recovery!");
+                                    }
+                                    ("shard-stores", Some(_)) => {
+                                        println!("hi from index monitoring shard-stores!");
+                                    }
+                                    _ => println!("{}", monitoring_subcommands.usage()),
+                                }
                             }
                             ("settings", Some(_)) => {
                                 println!("hi from es index settings!");
