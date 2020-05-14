@@ -452,8 +452,22 @@ fn main() {
                                     _ => println!("{}", settings_subcommands.usage()),
                                 }
                             }
-                            ("status", Some(_)) => {
-                                println!("hi from es index status!");
+                            ("status", Some(status_subcommands)) => {
+                                match status_subcommands.subcommand() {
+                                    ("clear-cache", Some(_)) => {
+                                        println!("hi from es index status clear-cache!");
+                                    }
+                                    ("flush", Some(_)) => {
+                                        println!("hi from es index status flush!");
+                                    }
+                                    ("force-merge", Some(_)) => {
+                                        println!("hi from es index status force-merge!");
+                                    }
+                                    ("refresh", Some(_)) => {
+                                        println!("hi from es index status refresh!");
+                                    }
+                                    _ => println!("{}", status_subcommands.usage()),
+                                }
                             }
                             ("template", Some(_)) => {
                                 println!("hi from es index template!");
