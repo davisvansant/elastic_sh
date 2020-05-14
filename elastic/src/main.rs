@@ -407,8 +407,19 @@ fn main() {
                                     _ => println!("{}", management_subcommands.usage()),
                                 }
                             }
-                            ("mapping", Some(_)) => {
-                                println!("hi from es index mapping!");
+                            ("mapping", Some(mapping_subcommands)) => {
+                                match mapping_subcommands.subcommand() {
+                                    ("get", Some(_)) => {
+                                        println!("hi from es index mapping get!");
+                                    }
+                                    ("field", Some(_)) => {
+                                        println!("hi from es index mapping field!");
+                                    }
+                                    ("put", Some(_)) => {
+                                        println!("hi from es index mapping put!");
+                                    }
+                                    _ => println!("{}", mapping_subcommands.usage()),
+                                }
                             }
                             ("monitoring", Some(_)) => {
                                 println!("hi from es index monitoring!");
