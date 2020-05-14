@@ -1,6 +1,8 @@
 use clap::{App, SubCommand};
 
 fn main() {
+
+    let matches =
     App::new("elastic")
         .version("0.1.0")
         .about("| >_ a shell and cli for elastic.co products")
@@ -256,4 +258,12 @@ fn main() {
             ])
         )
         .get_matches();
+
+        match matches.subcommand() {
+            ("es", Some(es_subcommands)) => {
+                println!("hi from es: {:?}", es_subcommands);
+            }
+            ("", None) => println!("{}", matches.usage()),
+            _ => println!("nothing"),
+        }
 }
