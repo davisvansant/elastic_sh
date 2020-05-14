@@ -261,7 +261,33 @@ fn main() {
 
         match matches.subcommand() {
             ("es", Some(es_subcommands)) => {
-                println!("hi from es: {:?}", es_subcommands);
+                match es_subcommands.subcommand() {
+                    ("cat", Some(_)) => {
+                        println!("hi from cat!");
+                    }
+                    ("cluster", Some(_)) => {
+                        println!("hi from cluster!");
+                    }
+                    ("index", Some(_)) => {
+                        println!("hi from index!");
+                    }
+                    ("ingest", Some(_)) => {
+                        println!("hi from ingest!");
+                    }
+                    ("multi-document", Some(_)) => {
+                        println!("hi from multi-document!");
+                    }
+                    ("nodes", Some(_)) => {
+                        println!("hi from nodes!");
+                    }
+                    ("search", Some(_)) => {
+                        println!("hi from search!");
+                    }
+                    ("single-document", Some(_)) => {
+                        println!("hi from single-docuemnt!");
+                    }
+                    _ => println!("{}", es_subcommands.usage()),
+                }
             }
             ("", None) => println!("{}", matches.usage()),
             _ => println!("nothing"),
