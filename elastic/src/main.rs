@@ -372,8 +372,40 @@ fn main() {
                                     _ => println!("{}", alias_subcommands.usage()),
                                 }
                             }
-                            ("management", Some(_)) => {
-                                println!("hi from es index management!");
+                            ("management", Some(management_subcommands)) => {
+                                match management_subcommands.subcommand() {
+                                    ("create", Some(_)) => {
+                                        println!("hi from es index management create!");
+                                    }
+                                    ("delete", Some(_)) => {
+                                        println!("hi from es index management delete!");
+                                    }
+                                    ("get", Some(_)) => {
+                                        println!("hi from es index management get!");
+                                    }
+                                    ("exists", Some(_)) => {
+                                        println!("hi from es index management exists!");
+                                    }
+                                    ("close", Some(_)) => {
+                                        println!("hi from es index management close!");
+                                    }
+                                    ("open", Some(_)) => {
+                                        println!("hi from es index management open!");
+                                    }
+                                    ("shrink", Some(_)) => {
+                                        println!("hi from es index management shrink!");
+                                    }
+                                    ("split", Some(_)) => {
+                                        println!("hi from es index management split!");
+                                    }
+                                    ("clone", Some(_)) => {
+                                        println!("hi from es index management clone!");
+                                    }
+                                    ("rollover", Some(_)) => {
+                                        println!("hi from es index management rollover!");
+                                    }
+                                    _ => println!("{}", management_subcommands.usage()),
+                                }
                             }
                             ("mapping", Some(_)) => {
                                 println!("hi from es index mapping!");
