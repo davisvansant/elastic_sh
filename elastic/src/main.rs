@@ -47,7 +47,7 @@ fn main() {
                                 .about("Returns information about tasks currently executing in the cluster"),
                             SubCommand::with_name("templates")
                                 .about("Returns information about index templates in a cluster"),
-                            SubCommand::with_name("thread_pool")
+                            SubCommand::with_name("thread-pool")
                                 .about("Returns thread pool statistics for each node in a cluster")
                         ]),
                 SubCommand::with_name("cluster").about("Elasticsearch cluster api")
@@ -318,8 +318,8 @@ fn main() {
                             ("templates", Some(_)) => {
                                 println!("hi from es cat templates!");
                             }
-                            ("thread_pool", Some(_)) => {
-                                println!("hi from es cat thread_pool!");
+                            ("thread-pool", Some(_)) => {
+                                println!("hi from es cat thread-pool!");
                             }
                             _ => println!("{}", cat_subcommands.usage()),
                         }
