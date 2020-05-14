@@ -262,8 +262,67 @@ fn main() {
         match matches.subcommand() {
             ("es", Some(es_subcommands)) => {
                 match es_subcommands.subcommand() {
-                    ("cat", Some(_)) => {
-                        println!("hi from cat!");
+                    ("cat", Some(cat_subcommands)) => {
+                        match cat_subcommands.subcommand() {
+                            ("aliases", Some(_)) => {
+                                println!("hi from es cat aliases!");
+                            }
+                            ("allocation", Some(_)) => {
+                                println!("hi from es cat allocation!");
+                            }
+                            ("count", Some(_)) => {
+                                println!("hi from es cat count!");
+                            }
+                            ("fielddata", Some(_)) => {
+                                println!("hi from es cat fielddata!");
+                            }
+                            ("health", Some(_)) => {
+                                println!("hi from es cat health!");
+                            }
+                            ("indicies", Some(_)) => {
+                                println!("hi from es cat indicies!");
+                            }
+                            ("master", Some(_)) => {
+                                println!("hi from es cat master!");
+                            }
+                            ("nodeattrs", Some(_)) => {
+                                println!("hi from es cat nodeattrs!");
+                            }
+                            ("nodes", Some(_)) => {
+                                println!("hi from es cat nodes!");
+                            }
+                            ("pending-tasks", Some(_)) => {
+                                println!("hi from es cat pending-tasks!");
+                            }
+                            ("plugins", Some(_)) => {
+                                println!("hi from es cat plugins!");
+                            }
+                            ("recovery", Some(_)) => {
+                                println!("hi from es cat recovery!");
+                            }
+                            ("repositories", Some(_)) => {
+                                println!("hi from es cat repositories!");
+                            }
+                            ("segments", Some(_)) => {
+                                println!("hi from es cat segments!");
+                            }
+                            ("shards", Some(_)) => {
+                                println!("hi from es cat shards!");
+                            }
+                            ("snapshots", Some(_)) => {
+                                println!("hi from es cat snapshots!");
+                            }
+                            ("task-management", Some(_)) => {
+                                println!("hi from es cat task-management!");
+                            }
+                            ("templates", Some(_)) => {
+                                println!("hi from es cat templates!");
+                            }
+                            ("thread_pool", Some(_)) => {
+                                println!("hi from es cat thread_pool!");
+                            }
+                            _ => println!("{}", cat_subcommands.usage()),
+                        }
                     }
                     ("cluster", Some(_)) => {
                         println!("hi from cluster!");
