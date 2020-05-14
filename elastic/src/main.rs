@@ -469,8 +469,22 @@ fn main() {
                                     _ => println!("{}", status_subcommands.usage()),
                                 }
                             }
-                            ("template", Some(_)) => {
-                                println!("hi from es index template!");
+                            ("template", Some(template_subcommands)) => {
+                                match template_subcommands.subcommand() {
+                                    ("get", Some(_)) => {
+                                        println!("hi from es index template get!");
+                                    }
+                                    ("delete", Some(_)) => {
+                                        println!("hi from es index template delete!");
+                                    }
+                                    ("exists", Some(_)) => {
+                                        println!("hi from es index template exists!");
+                                    }
+                                    ("put", Some(_)) => {
+                                        println!("hi from es index template put!");
+                                    }
+                                    _ => println!("{}", template_subcommands.usage()),
+                                }
                             }
                             _ => println!("{}", index_subcommands.usage()),
                         }
