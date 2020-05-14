@@ -324,8 +324,31 @@ fn main() {
                             _ => println!("{}", cat_subcommands.usage()),
                         }
                     }
-                    ("cluster", Some(_)) => {
-                        println!("hi from cluster!");
+                    ("cluster", Some(cluster_subcommands)) => {
+                        match cluster_subcommands.subcommand() {
+                            ("allocation-explain", Some(_)) => {
+                                println!("hi from es cluster allocation-explain!");
+                            }
+                            ("health", Some(_)) => {
+                                println!("hi from es cluster health!");
+                            }
+                            ("pending-tasks", Some(_)) => {
+                                println!("hi from es cluster pending-tasks!");
+                            }
+                            ("settings", Some(_)) => {
+                                println!("hi from es cluster settings!");
+                            }
+                            ("state", Some(_)) => {
+                                println!("hi from es cluster state!");
+                            }
+                            ("stats", Some(_)) => {
+                                println!("hi from es cluster stats!");
+                            }
+                            ("voting-configuration-exclusions", Some(_)) => {
+                                println!("hi from es cluster voting-configuration-exclusions!");
+                            }
+                            _ => println!("{}", cluster_subcommands.usage()),
+                        }
                     }
                     ("index", Some(_)) => {
                         println!("hi from index!");
