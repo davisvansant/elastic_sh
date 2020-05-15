@@ -531,8 +531,22 @@ fn main() {
                             _ => println!("{}", multi_document_subcommands.usage()),
                         }
                     }
-                    ("nodes", Some(_)) => {
-                        println!("hi from nodes!");
+                    ("nodes", Some(nodes_subcommands)) => {
+                        match nodes_subcommands.subcommand() {
+                            ("hot-threads", Some(_)) => {
+                                println!("hi from es nodes hot-threads!");
+                            }
+                            ("info", Some(_)) => {
+                                println!("hi from es nodes info!");
+                            }
+                            ("stats", Some(_)) => {
+                                println!("hi from es nodes stats!");
+                            }
+                            ("usage", Some(_)) => {
+                                println!("hi from es nodes usage!");
+                            }
+                            _ => println!("{}", nodes_subcommands.usage()),
+                        }
                     }
                     ("search", Some(_)) => {
                         println!("hi from search!");
