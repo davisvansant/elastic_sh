@@ -511,8 +511,25 @@ fn main() {
                             _ => println!("{}", ingest_subcommands.usage()),
                         }
                     }
-                    ("multi-document", Some(_)) => {
-                        println!("hi from multi-document!");
+                    ("multi-document", Some(multi_document_subcommands)) => {
+                        match multi_document_subcommands.subcommand() {
+                            ("get", Some(_)) => {
+                                println!("hi from es multi-document get!");
+                            }
+                            ("bulk", Some(_)) => {
+                                println!("hi from es multi-document bulk!");
+                            }
+                            ("reindex", Some(_)) => {
+                                println!("hi from es multi-document reindex!");
+                            }
+                            ("update-by-query", Some(_)) => {
+                                println!("hi from es multi-document update-by-query!");
+                            }
+                            ("delete-by-query", Some(_)) => {
+                                println!("hi from es multi-document delete-by-query!");
+                            }
+                            _ => println!("{}", multi_document_subcommands.usage()),
+                        }
                     }
                     ("nodes", Some(_)) => {
                         println!("hi from nodes!");
