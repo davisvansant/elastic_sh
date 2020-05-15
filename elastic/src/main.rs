@@ -548,8 +548,49 @@ fn main() {
                             _ => println!("{}", nodes_subcommands.usage()),
                         }
                     }
-                    ("search", Some(_)) => {
-                        println!("hi from search!");
+                    ("search", Some(search_subcommands)) => {
+                        match search_subcommands.subcommand() {
+                            ("count", Some(_)) => {
+                                println!("hi from es search count!");
+                            }
+                            ("explain", Some(_)) => {
+                                println!("hi from es search explain!");
+                            }
+                            ("field-caps", Some(_)) => {
+                                println!("hi from es search field-caps!");
+                            }
+                            ("msearch-template", Some(_)) => {
+                                println!("hi from es search msearch-template!");
+                            }
+                            ("msearch", Some(_)) => {
+                                println!("hi from es search msearch!");
+                            }
+                            ("rank-eval", Some(_)) => {
+                                println!("hi from es search rank-eval!");
+                            }
+                            ("request-body", Some(_)) => {
+                                println!("hi from es search request-body!");
+                            }
+                            ("search-shards", Some(_)) => {
+                                println!("hi from es search search-shards!");
+                            }
+                            ("template", Some(_)) => {
+                                println!("hi from es search template!");
+                            }
+                            ("uri", Some(_)) => {
+                                println!("hi from es search uri!");
+                            }
+                            ("validate", Some(_)) => {
+                                println!("hi from es search validate!");
+                            }
+                            ("get", Some(_)) => {
+                                println!("hi from es search get!");
+                            }
+                            ("post", Some(_)) => {
+                                println!("hi from es search post!");
+                            }
+                            _ => println!("{}", search_subcommands.usage()),
+                        }
                     }
                     ("single-document", Some(_)) => {
                         println!("hi from single-docuemnt!");
