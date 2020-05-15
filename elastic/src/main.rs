@@ -592,8 +592,22 @@ fn main() {
                             _ => println!("{}", search_subcommands.usage()),
                         }
                     }
-                    ("single-document", Some(_)) => {
-                        println!("hi from single-docuemnt!");
+                    ("single-document", Some(single_document_subcommands)) => {
+                        match single_document_subcommands.subcommand() {
+                            ("index", Some(_)) => {
+                                println!("hi from es single-document index!");
+                            }
+                            ("get", Some(_)) => {
+                                println!("hi from es single-document get!");
+                            }
+                            ("delete", Some(_)) => {
+                                println!("hi from es single-document delete!");
+                            }
+                            ("update", Some(_)) => {
+                                println!("hi from es single-document update!");
+                            }
+                            _ => println!("{}", single_document_subcommands.usage()),
+                        }
                     }
                     _ => println!("{}", es_subcommands.usage()),
                 }
